@@ -1,0 +1,328 @@
+@import '@fontsource-variable/montserrat';
+
+:root {
+  font-family: 'Montserrat Variable', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: #000;
+  background: #e1f8ff;
+  color-scheme: light;
+
+  --surface: #fcfbfb;
+  --border-blue: #0094ff;
+  --button-blue: #216cff;
+  --button-pink: #ff218b;
+  --divider: #bdbcbc;
+  --radius: 15px;
+  --shadow: 0 4px 4px rgb(0 0 0 / 25%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  min-height: 43px;
+  padding: 0 17px;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--button-blue);
+  color: var(--surface);
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(0.94);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--button-blue);
+  outline-offset: 3px;
+}
+
+.button-danger {
+  background: var(--button-pink);
+}
+
+.feed {
+  width: min(800px, calc(100% - 32px));
+  margin: 29px auto 0;
+  padding-bottom: 48px;
+  display: grid;
+  gap: 38px;
+}
+
+.feed > .text-entry-form,
+.post-card,
+.comment-text,
+.edit-dialog {
+  border: 2px solid var(--border-blue);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.text-entry-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+}
+
+.text-entry-form input,
+.edit-form textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #7e7d7d;
+  border-radius: var(--radius);
+  background: #fff;
+  color: inherit;
+}
+
+.text-entry-form input {
+  height: 43px;
+  padding: 0 19px;
+}
+
+.text-entry-form input::placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.feed > .text-entry-form {
+  margin-bottom: 22px;
+  padding: 17px 14px 17px 19px;
+  gap: 25px;
+  font-size: 24px;
+}
+
+.feed > .text-entry-form input {
+  height: 51px;
+  padding-inline: 9px;
+  background: var(--surface);
+}
+
+.feed > .text-entry-form button {
+  width: 177px;
+  min-height: 51px;
+}
+
+.post-card {
+  min-width: 0;
+  padding: 14px 27px 17px 19px;
+}
+
+.post-text {
+  font-size: 24px;
+  line-height: 29px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.post-actions,
+.post-comments {
+  margin-top: 22px;
+  border-top: 1px solid var(--divider);
+}
+
+.post-actions {
+  display: grid;
+  grid-template-columns: 156px minmax(0, 1fr) 121px 121px;
+  align-items: center;
+  gap: 22px;
+  padding-top: 14px;
+}
+
+.post-comments {
+  display: grid;
+  justify-items: start;
+  gap: 31px;
+  padding: 20px 0 10px;
+}
+
+.post-comments > .text-entry-form,
+.comment-list {
+  width: 100%;
+}
+
+.post-comments > .text-entry-form button {
+  min-width: 117px;
+}
+
+.comment-list {
+  display: grid;
+  gap: 31px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.comment-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+}
+
+.comment-text {
+  min-height: 43px;
+  padding: 9px 15px;
+  overflow-wrap: anywhere;
+}
+
+.comment-row button {
+  min-width: 107px;
+}
+
+.edit-dialog {
+  width: min(800px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100% - 32px);
+  margin: auto;
+  padding: 27px 27px 15px 18px;
+  color: inherit;
+}
+
+.edit-dialog::backdrop {
+  background: rgb(107 158 255 / 59%);
+}
+
+.edit-form {
+  display: grid;
+  gap: 16px;
+}
+
+.edit-form textarea {
+  display: block;
+  min-height: 113px;
+  padding: 8px 17px;
+  font-size: 24px;
+  line-height: 29px;
+  resize: vertical;
+}
+
+.edit-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 32px;
+}
+
+.edit-actions button {
+  min-width: 121px;
+}
+
+.edit-actions button[type='submit'] {
+  min-width: 148px;
+}
+
+@media (max-width: 740px) {
+  .feed {
+    margin-top: 20px;
+    gap: 24px;
+  }
+
+  .feed > .text-entry-form {
+    margin-bottom: 6px;
+    padding: 14px;
+    gap: 12px;
+    font-size: 18px;
+  }
+
+  .feed > .text-entry-form button {
+    width: auto;
+  }
+
+  .post-card,
+  .edit-dialog {
+    padding: 16px;
+  }
+
+  .post-text,
+  .edit-form textarea {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  .post-actions {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .post-actions .comment-count {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    font-size: 14px;
+  }
+
+  .post-actions button {
+    padding-inline: 6px;
+    font-size: 14px;
+  }
+
+  .post-comments,
+  .comment-list {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .feed {
+    width: calc(100% - 24px);
+  }
+
+  .text-entry-form {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .post-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .post-actions > button:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .comment-row {
+    gap: 8px;
+  }
+
+  .comment-row button {
+    min-width: 0;
+    padding-inline: 10px;
+    font-size: 14px;
+  }
+
+  .edit-actions {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .edit-actions button,
+  .edit-actions button[type='submit'] {
+    flex: 1 1 120px;
+    min-width: 0;
+  }
+}
